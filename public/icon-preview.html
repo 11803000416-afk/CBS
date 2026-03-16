@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBS Icons - Preview</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #1e293b;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 16px;
+            margin-bottom: 48px;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        .icon-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .icon-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            border-color: #f97316;
+        }
+        .icon-card img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+        .icon-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+        .icon-desc {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+        .icon-size {
+            font-size: 12px;
+            color: #94a3b8;
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 4px 12px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        .features {
+            background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 32px;
+            color: white;
+        }
+        .features h3 {
+            margin-top: 0;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .features ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .features li {
+            margin-bottom: 8px;
+        }
+        .close-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .close-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body>
+    <button class="close-btn" onclick="window.location.href='/CBS/public/dashboard'">Go to Dashboard →</button>
+    
+    <div class="container">
+        <h1>🎨 CBS Icon System</h1>
+        <p class="subtitle">Professional, Clean & Optimized Icons - YAMACHINE Style</p>
+        
+        <div class="icon-grid">
+            <div class="icon-card">
+                <img src="favicon.svg" alt="Favicon">
+                <div class="icon-title">Favicon</div>
+                <div class="icon-desc">Browser tab icon (32×32px)</div>
+                <div class="icon-size">0.81 KB</div>
+            </div>
+            
+            <div class="icon-card">
+                <img src="cbs-logo.svg" alt="CBS Logo">
+                <div class="icon-title">CBS Logo</div>
+                <div class="icon-desc">Full branding logo (200×200px)</div>
+                <div class="icon-size">1.45 KB</div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <h3>✨ Icon Features:</h3>
+            <ul>
+                <li><strong>Amber/Orange Gradient</strong> - Matches YAMACHINE dashboard theme</li>
+                <li><strong>Material Design Car Icon</strong> - Professional & recognizable</li>
+                <li><strong>SVG Format</strong> - Scalable, crisp on all displays</li>
+                <li><strong>Optimized Size</strong> - Total 2.26 KB for both icons</li>
+                <li><strong>Rounded Corners</strong> - Modern, friendly aesthetic</li>
+                <li><strong>White Car Icon</strong> - High contrast for visibility</li>
+                <li><strong>Consistent Branding</strong> - Used throughout login, sidebar, headers</li>
+            </ul>
+        </div>
+        
+        <div style="text-align: center; margin-top: 32px; color: #64748b; font-size: 14px;">
+            <p><strong>CBS - Car Broker System</strong></p>
+            <p>Professional, Clean, Presentable</p>
+        </div>
+    </div>
+</body>
+</html>

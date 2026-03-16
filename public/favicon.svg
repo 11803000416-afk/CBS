@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f97316;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="32" height="32" rx="8" fill="url(#bg)"/>
+  
+  <!-- Car Icon (Material Design Style) -->
+  <path d="M20.5 14c-.72 0-1.31-.42-1.52-1.01L17.16 7H10.84l-1.82 5.99c-.21.59-.8 1.01-1.52 1.01H5v12c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1V14h-2.5zM10.5 22c-.83 0-1.5-.67-1.5-1.5S9.67 19 10.5 19s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM7 17l1.5-4.5h11L21 17H7z" fill="white"/>
+</svg>
