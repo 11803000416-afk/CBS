@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066ff" />
+      <stop offset="50%" stop-color="#9933ff" />
+      <stop offset="100%" stop-color="#ff6b35" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="28" fill="url(#g1)" />
+  <g transform="translate(18,36) scale(0.7)">
+    <path d="M12 80 C 22 42, 78 20, 120 28 C 162 36, 192 66, 200 88 L 200 120 L 0 120 L 0 88 C 8 66, 38 36, 80 28 C 122 20, 178 42, 188 80" fill="#ffffff" opacity="0.06" />
+
+    <path d="M18 76 C 30 48, 70 32, 110 36 C 150 40, 186 64, 194 84 L 194 112 L 6 112 L 6 84 C 14 64, 50 40, 90 36 C 130 32, 170 48, 182 76" fill="#ffffff" />
+
+    <!-- Wheels -->
+    <circle cx="54" cy="120" r="14" fill="#0ea5a4" />
+    <circle cx="146" cy="120" r="14" fill="#0ea5a4" />
+
+    <!-- Shield/Badge -->
+    <g transform="translate(60,20)">
+      <path d="M30 6 L54 18 L54 42 C54 60 30 72 30 72 C30 72 6 60 6 42 L6 18 Z" fill="#ffffff" opacity="0.06"/>
+      <path d="M30 8 L52 20 L52 40 C52 56 30 68 30 68 C30 68 8 56 8 40 L8 20 Z" fill="url(#g1)" stroke="#fff" stroke-opacity="0.12" stroke-width="2"/>
+      <text x="30" y="36" text-anchor="middle" fill="#fff" font-family="Poppins, sans-serif" font-weight="700" font-size="20">CBS</text>
+    </g>
+  </g>
+</svg>

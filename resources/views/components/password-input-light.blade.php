@@ -15,7 +15,7 @@
             class="input-field-light pr-12 {{ $class ?? '' }}"
             value="{{ old($name ?? 'password') }}"
             {{ isset($required) && $required ? 'required' : '' }}
-            {{ $attributes ?? '' }}
+            {{ $inputAttributes ?? '' }}
         >
         <button 
             type="button"

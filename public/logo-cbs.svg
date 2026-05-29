@@ -1,0 +1,66 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradientMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1E40AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradientAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.15" />
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#gradientMain)" filter="url(#shadow)" />
+  
+  <!-- Car Body - Modern Design -->
+  <g>
+    <!-- Windshield -->
+    <path d="M 55 85 L 65 60 L 135 60 L 145 85" fill="#E0F2FE" opacity="0.8" stroke="white" stroke-width="2" />
+    
+    <!-- Main Car Body -->
+    <path d="M 50 85 Q 45 90 45 100 L 45 115 Q 45 125 55 125 L 145 125 Q 155 125 155 115 L 155 100 Q 155 90 150 85 Z" 
+          fill="white" stroke="white" stroke-width="2" />
+    
+    <!-- Car Roof -->
+    <path d="M 65 85 L 65 75 Q 65 70 70 70 L 130 70 Q 135 70 135 75 L 135 85" 
+          fill="white" stroke="white" stroke-width="2" />
+    
+    <!-- Left Window -->
+    <rect x="58" y="72" width="28" height="18" rx="2" fill="#E0F2FE" opacity="0.7" stroke="none" />
+    
+    <!-- Right Window -->
+    <rect x="114" y="72" width="28" height="18" rx="2" fill="#E0F2FE" opacity="0.7" stroke="none" />
+    
+    <!-- Headlights -->
+    <circle cx="52" cy="100" r="5" fill="#FCD34D" />
+    <circle cx="148" cy="100" r="5" fill="#FCD34D" />
+    
+    <!-- Left Wheel -->
+    <circle cx="70" cy="125" r="12" fill="url(#gradientAccent)" />
+    <circle cx="70" cy="125" r="8" fill="#1E293B" />
+    <circle cx="70" cy="125" r="5" fill="#64748B" />
+    
+    <!-- Right Wheel -->
+    <circle cx="130" cy="125" r="12" fill="url(#gradientAccent)" />
+    <circle cx="130" cy="125" r="8" fill="#1E293B" />
+    <circle cx="130" cy="125" r="5" fill="#64748B" />
+    
+    <!-- Door Line -->
+    <line x1="100" y1="85" x2="100" y2="125" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+  </g>
+  
+  <!-- Speedometer/Check Mark -->
+  <g transform="translate(100, 50)">
+    <circle cx="0" cy="0" r="8" fill="url(#gradientAccent)" opacity="0.9" />
+    <path d="M -3 0 L -1 2 L 3 -2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  
+  <!-- Text: CBS -->
+  <text x="100" y="155" font-size="24" font-weight="800" fill="white" text-anchor="middle" letter-spacing="3">CBS</text>
+  <text x="100" y="172" font-size="10" font-weight="500" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">CAR BROKER</text>
+</svg>

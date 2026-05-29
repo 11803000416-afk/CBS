@@ -34,4 +34,9 @@ class Buyer extends Model
     {
         return $this->hasMany(Transaction::class);
     }
+
+    public function bookings(): HasMany
+    {
+        return $this->hasMany(Booking::class, 'buyer_id');
+    }
 }

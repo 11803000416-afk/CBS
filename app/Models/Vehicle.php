@@ -20,13 +20,18 @@ class Vehicle extends Model
         'year',
         'mileage',
         'price',
+        'currency',
         'description',
         'images',
+        'videos',
         'status',
+        'transmission',
+        'fuel_type',
     ];
 
     protected $casts = [
         'images' => 'array',
+        'videos' => 'array',
         'price' => 'decimal:2',
     ];
 
@@ -48,5 +53,37 @@ class Vehicle extends Model
     public function transaction(): HasOne
     {
         return $this->hasOne(Transaction::class);
+    }
+
+    public function sellerRequest(): HasOne
+    {
+        return $this->hasOne(SellerRequest::class);
+    }
+
+    public function bookings(): HasMany
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(VehicleReview::class);
+    }
+
+    public function publishedReviews(): HasMany
+    {
+        return $this->hasMany(VehicleReview::class)->where('status', 'published');
+    }
+
+    public function averageRating(): float
+    {
+        $average = $this->publishedReviews()->avg('rating');
+
+        return (float) ($average ?? 0);
+    }
+
+    public function reviewCount(): int
+    {
+        return $this->publishedReviews()->count();
     }
 }

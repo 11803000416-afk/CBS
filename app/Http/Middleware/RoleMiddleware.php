@@ -12,8 +12,12 @@ class RoleMiddleware
     {
         $user = $request->user();
 
-        if (!$user || !$user->is_active || !$user->hasRole($roles)) {
-            abort(403, 'Unauthorized action.');
+        if (!$user) {
+            return redirect()->route('login');
+        }
+
+        if (!$user->is_active || !$user->hasRole($roles)) {
+            return redirect()->route('dashboard')->with('error', 'Unauthorized action.');
         }
 
         return $next($request);

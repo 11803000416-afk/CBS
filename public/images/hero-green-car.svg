@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Vintage Chevrolet 1965 hero background">
+  <defs>
+    <linearGradient id="edgeFade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#111827" stop-opacity="0.38" />
+      <stop offset="22%" stop-color="#111827" stop-opacity="0.22" />
+      <stop offset="78%" stop-color="#111827" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.38" />
+    </linearGradient>
+    <linearGradient id="bottomFade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#111827" stop-opacity="0.02" />
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.28" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="600" fill="#0f172a" />
+
+  <image
+    href="/images/vintage-chevrolet-1965.jpg"
+    x="0"
+    y="0"
+    width="1600"
+    height="600"
+    preserveAspectRatio="xMidYMid slice"
+  />
+
+  <rect width="1600" height="600" fill="url(#edgeFade)" />
+  <rect width="1600" height="600" fill="url(#bottomFade)" />
+</svg>

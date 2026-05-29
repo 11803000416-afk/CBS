@@ -20,11 +20,12 @@
             <div class="bg-gradient-to-r from-slate-50 to-slate-100 px-5 py-3 border-b border-slate-200 flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
-                        {{ strtoupper(substr($inquiry->buyer->name ?? 'U', 0, 1)) }}
+                        {{ strtoupper(substr($inquiry->user_name ?? 'U', 0, 1)) }}
                     </div>
                     <div>
-                        <h3 class="font-bold text-slate-800">{{ $inquiry->buyer->name ?? '-' }}</h3>
-                        <p class="text-xs text-slate-500">{{ $inquiry->created_at->diffForHumans() }}</p>
+                        <h3 class="font-bold text-slate-800">{{ $inquiry->user_name ?? '-' }}</h3>
+                        <p class="text-xs text-slate-500">{{ $inquiry->user_email ?? '-' }}</p>
+                        <p class="text-xs text-slate-400">{{ $inquiry->created_at->diffForHumans() }}</p>
                     </div>
                 </div>
                 <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold

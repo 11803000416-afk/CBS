@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -24,8 +25,33 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Relaxed rate limits for development; production should use stricter limits
+        $isLocal = app()->environment('local');
+        
         RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+            $limit = app()->environment('local') ? 1000 : 60;
+            return Limit::perMinute($limit)->by($request->user()?->id ?: $request->ip());
+        });
+
+        RateLimiter::for('login', function (Request $request) {
+            $email = strtolower((string) $request->input('email'));
+            $limit = app()->environment('local') ? 100 : 5;
+            return Limit::perMinute($limit)->by($email . '|' . $request->ip());
+        });
+
+        RateLimiter::for('register', function (Request $request) {
+            $limit = app()->environment('local') ? 100 : 3;
+            return Limit::perMinute($limit)->by($request->ip());
+        });
+
+        // Custom route model binding for chat with fallback
+        Route::model('user', User::class);
+        Route::bind('user', function ($value) {
+            $user = User::find($value);
+            if (!$user) {
+                abort(redirect('/chat')->with('error', 'User not found'));
+            }
+            return $user;
         });
 
         $this->routes(function () {

@@ -16,23 +16,34 @@
     </div>
     <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-            <label class="block text-sm font-semibold text-slate-700 mb-2">Vehicle</label>
-            <select name="vehicle_id" class="w-full border border-slate-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" required>
-                <option value="">Select vehicle</option>
-                @foreach($vehicles as $vehicle)
-                    <option value="{{ $vehicle->id }}" @selected(old('vehicle_id', $inquiry->vehicle_id) == $vehicle->id)>{{ $vehicle->brand }} {{ $vehicle->model }} ({{ $vehicle->year }})</option>
-                @endforeach
-            </select>
-        </div>
-        @if(auth()->user()->role !== 'buyer' || $inquiry->exists)
-            <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-2">Buyer</label>
-                <select name="buyer_id" class="w-full border border-slate-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" required>
-                    <option value="">Select buyer</option>
-                    @foreach($buyers as $buyer)
-                        <option value="{{ $buyer->id }}" @selected(old('buyer_id', $inquiry->buyer_id) == $buyer->id)>{{ $buyer->name }}</option>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Vehicle *</label>
+            @if($vehicles->count() > 0)
+                <select name="vehicle_id" class="w-full border @error('vehicle_id') border-red-500 @else border-slate-300 @enderror rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" required>
+                    <option value="">Select vehicle</option>
+                    @foreach($vehicles as $vehicle)
+                        <option value="{{ $vehicle->id }}" @selected(old('vehicle_id', $inquiry->vehicle_id) == $vehicle->id)>{{ $vehicle->brand }} {{ $vehicle->model }} ({{ $vehicle->year }})</option>
                     @endforeach
                 </select>
+                @error('vehicle_id')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            @else
+                <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 text-amber-800 text-sm">
+                    <p class="font-semibold mb-1">No Available Vehicles</p>
+                    <p>There are currently no vehicles available for inquiry. Please check back later.</p>
+                </div>
+            @endif
+        </div>
+        @if(auth()->user()->role !== 'buyer')
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Inquiry From</label>
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <p class="text-sm text-blue-700 font-medium">This inquiry will be created as: <strong>{{ auth()->user()->name }}</strong> ({{ auth()->user()->email }})</p>
+                </div>
+            </div>
+        @else
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <p class="text-sm text-blue-700 font-medium">Inquiry from: <strong>{{ auth()->user()->name }}</strong> ({{ auth()->user()->email }})</p>
             </div>
         @endif
         <div class="md:col-span-2">

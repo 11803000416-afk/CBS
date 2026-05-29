@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <defs>
+    <linearGradient id="gf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066ff" />
+      <stop offset="100%" stop-color="#00d4ff" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="120" fill="transparent" />
+  <g transform="translate(8,8)">
+    <rect x="0" y="0" width="96" height="96" rx="16" fill="url(#gf)" />
+    <text x="120" y="64" font-family="Poppins, sans-serif" font-weight="700" font-size="36" fill="#0b1828">CBS</text>
+  </g>
+</svg>

@@ -7,6 +7,41 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## CBS - Car Broker System
+
+CBS is a Laravel-based car trading platform with role-based dashboards, vehicle listings, bookings, inquiries, reports, and admin tooling.
+
+### Quick Start
+
+```bash
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+npm run build
+php artisan serve
+```
+
+Open:
+
+- http://127.0.0.1:8000/login
+
+### Demo Accounts
+
+Default demo password: `password`
+
+- admin@cbs.bt — admin
+- seller@cbs.bt — seller
+- agent@cbs.bt — agent
+- buyer@cbs.bt — buyer
+
+### Admin Notes
+
+- Use the dashboard navigation to manage buyers, sellers, transactions, reports, and seller requests.
+- Keep `APP_DEBUG=false` in production.
+- Use `bash scripts/deploy.sh` for repeatable deployment.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

@@ -11,18 +11,24 @@ class BuyerController extends Controller
 {
     public function index(): View
     {
-        $buyers = Buyer::latest()->paginate(10);
+        $this->authorize('viewAny', Buyer::class);
+
+        $buyers = Buyer::latest('id')->paginate(10);
 
         return view('buyers.index', compact('buyers'));
     }
 
     public function create(): View
     {
+        $this->authorize('create', Buyer::class);
+
         return view('buyers.form', ['buyer' => new Buyer()]);
     }
 
     public function store(Request $request): RedirectResponse
     {
+        $this->authorize('create', Buyer::class);
+
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:30'],
@@ -38,11 +44,15 @@ class BuyerController extends Controller
 
     public function edit(Buyer $buyer): View
     {
+        $this->authorize('update', $buyer);
+
         return view('buyers.form', compact('buyer'));
     }
 
     public function update(Request $request, Buyer $buyer): RedirectResponse
     {
+        $this->authorize('update', $buyer);
+
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:30'],
@@ -58,6 +68,8 @@ class BuyerController extends Controller
 
     public function destroy(Buyer $buyer): RedirectResponse
     {
+        $this->authorize('delete', $buyer);
+
         $buyer->delete();
 
         return redirect()->route('buyers.index')->with('success', 'Buyer deleted successfully.');

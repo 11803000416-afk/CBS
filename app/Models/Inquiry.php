@@ -12,7 +12,8 @@ class Inquiry extends Model
 
     protected $fillable = [
         'vehicle_id',
-        'buyer_id',
+        'user_name',
+        'user_email',
         'assigned_to',
         'message',
         'meeting_location',
@@ -31,11 +32,7 @@ class Inquiry extends Model
         return $this->belongsTo(Vehicle::class);
     }
 
-    public function buyer(): BelongsTo
-    {
-        return $this->belongsTo(Buyer::class);
-    }
-
+    
     public function assignedBroker(): BelongsTo
     {
         return $this->belongsTo(User::class, 'assigned_to');

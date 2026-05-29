@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200">
+  <defs>
+    <linearGradient id="gw" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066ff" />
+      <stop offset="50%" stop-color="#9933ff" />
+      <stop offset="100%" stop-color="#ff6b35" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="200" rx="28" fill="transparent" />
+  <g transform="translate(20,20) scale(0.9)">
+    <rect x="0" y="0" width="160" height="160" rx="20" fill="url(#gw)" />
+    <g transform="translate(18,36) scale(0.7)">
+      <path d="M18 76 C 30 48, 70 32, 110 36 C 150 40, 186 64, 194 84 L 194 112 L 6 112 L 6 84 C 14 64, 50 40, 90 36 C 130 32, 170 48, 182 76" fill="#ffffff"/>
+      <circle cx="54" cy="120" r="14" fill="#0ea5a4" />
+      <circle cx="146" cy="120" r="14" fill="#0ea5a4" />
+    </g>
+    <text x="210" y="110" font-family="Poppins, sans-serif" font-weight="700" font-size="54" fill="#0b1828">Car Broker <tspan fill="url(#gw)">System</tspan></text>
+  </g>
+</svg>
