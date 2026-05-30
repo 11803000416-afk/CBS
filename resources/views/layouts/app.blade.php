@@ -20,12 +20,21 @@
         })();
     </script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <!-- Chart.js for Analytics -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- CBS Optimization Scripts -->
+    <script src="{{ asset('js/optimization.js') }}" defer></script>
+    <!-- Chart.js for Analytics (deferred to avoid render-block) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" defer></script>
+
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@400;500;600;700;800&display=swap');
         body { font-family: 'Inter', 'Sora', system-ui, sans-serif; }
     </style>
+
+    <!-- Preload hero background for faster LCP -->
+    <link rel="preload" as="image" href="{{ asset('images/vintage-chevrolet-1965.webp') }}">
 </head>
 <body class="bg-gray-50 text-gray-900 overflow-x-hidden">
     <div class="min-h-screen flex flex-col">
@@ -140,9 +149,9 @@
                         </button>
 
                         <!-- Live Date/Time (Desktop Only) -->
-                        <div class="hidden md:block text-right border-r border-gray-200 pr-4">
-                            <p class="text-xs text-gray-600" id="currentDate">Loading...</p>
-                            <p class="text-sm font-semibold text-cyan-600" id="currentTime">--:--:--</p>
+                        <div class="hidden md:flex flex-col justify-center items-end h-16 text-right border-r border-gray-200 pr-4">
+                            <p class="m-0 text-xs text-gray-600 leading-tight" id="currentDate">Loading...</p>
+                            <p class="m-0 text-sm font-semibold text-cyan-600 leading-none" id="currentTime">--:--:--</p>
                         </div>
                         
                         <!-- User Menu & Logout (Desktop) -->
@@ -177,8 +186,8 @@
                 <div class="px-4 py-4 space-y-2 max-h-96 overflow-y-auto">
                     <!-- Date/Time (Mobile) -->
                     <div class="px-3 py-3 rounded-lg bg-gradient-to-r from-primary-50 to-info-50 mb-3 border border-primary-200">
-                        <p class="text-xs text-primary-600" id="currentDateMobile">Loading...</p>
-                        <p class="text-sm font-semibold text-primary-700" id="currentTimeMobile">--:--:--</p>
+                        <p class="m-0 text-xs text-primary-600" id="currentDateMobile">Loading...</p>
+                        <p class="m-0 text-sm font-semibold text-primary-700" id="currentTimeMobile">--:--:--</p>
                     </div>
 
                     <button type="button" data-theme-toggle class="w-full mb-3 inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100" aria-label="Toggle color theme">

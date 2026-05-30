@@ -83,47 +83,58 @@
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         @php
             $brands = [
-                ['name' => 'Maruti Suzuki', 'icon' => '🚗'],
-                ['name' => 'Tata', 'icon' => '🚙'],
-                ['name' => 'Mahindra', 'icon' => '🚕'],
-                ['name' => 'Hyundai', 'icon' => '⚙️'],
-                ['name' => 'Toyota', 'icon' => '🏎️'],
-                ['name' => 'Kia', 'icon' => '🚓'],
-                ['name' => 'BMW', 'icon' => '🛞'],
-                ['name' => 'Skoda', 'icon' => '🚗'],
-                ['name' => 'Honda', 'icon' => '🚙'],
-                ['name' => 'MG', 'icon' => '🚕'],
-                ['name' => 'Volkswagen', 'icon' => '⚙️'],
-                ['name' => 'Renault', 'icon' => '🏎️'],
-                ['name' => 'Mercedes-Benz', 'icon' => '🛞'],
-                ['name' => 'Land Rover', 'icon' => '🚗'],
-                ['name' => 'Nissan', 'icon' => '🚙'],
-                ['name' => 'BYD', 'icon' => '🚕'],
-                ['name' => 'Citroen', 'icon' => '⚙️'],
-                ['name' => 'VinFast', 'icon' => '🏎️'],
-                ['name' => 'Jeep', 'icon' => '🛞'],
-                ['name' => 'Audi', 'icon' => '🚗'],
-                ['name' => 'Porsche', 'icon' => '🚙'],
-                ['name' => 'Volvo', 'icon' => '🚕'],
-                ['name' => 'Lexus', 'icon' => '⚙️'],
-                ['name' => 'Fiat', 'icon' => '🏎️'],
-                ['name' => 'Lamborghini', 'icon' => '🛞'],
-                ['name' => 'Mini', 'icon' => '🚗'],
-                ['name' => 'Force Motors', 'icon' => '🚙'],
-                ['name' => 'Jaguar', 'icon' => '🚕'],
-                ['name' => 'Ferrari', 'icon' => '⚙️'],
-                ['name' => 'JSW', 'icon' => '🏎️'],
+                'Maruti Suzuki','Tata','Mahindra','Hyundai','Toyota','Kia','BMW','Skoda','Honda','MG','Volkswagen','Renault',
+                'Mercedes-Benz','Land Rover','Nissan','BYD','Citroen','VinFast','Jeep','Audi','Porsche','Volvo','Lexus','Fiat',
+                'Lamborghini','Mini','Force Motors','Jaguar','Ferrari','JSW'
+            ];
+
+            $brandLogos = [
+                'Maruti Suzuki' => 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Maruti_Suzuki_logo.svg',
+                'Tata' => 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Tata_Motors_logo.svg',
+                'Mahindra' => 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Mahindra_Logo.svg',
+                'Hyundai' => 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Hyundai_logo.svg',
+                'Toyota' => 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Toyota_logo.svg',
+                'Kia' => 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Kia_logo.svg',
+                'BMW' => 'https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg',
+                'Skoda' => 'https://upload.wikimedia.org/wikipedia/commons/7/79/Skoda_Auto_logo.svg',
+                'Honda' => 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Honda-logo.svg',
+                'MG' => 'https://upload.wikimedia.org/wikipedia/commons/4/4a/MG_logo.svg',
+                'Volkswagen' => 'https://upload.wikimedia.org/wikipedia/commons/7/75/Volkswagen_logo.svg',
+                'Renault' => 'https://upload.wikimedia.org/wikipedia/commons/9/90/Renault_2021_logo.svg',
+                'Mercedes-Benz' => 'https://upload.wikimedia.org/wikipedia/commons/9/90/Mercedes-Benz_logo.svg',
+                'Land Rover' => 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Land_Rover_logo.svg',
+                'Nissan' => 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Nissan_logo.svg',
+                'BYD' => 'https://upload.wikimedia.org/wikipedia/commons/7/78/BYD_logo.svg',
+                'Citroen' => 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Citro%C3%ABn_logo.svg',
+                'VinFast' => 'https://upload.wikimedia.org/wikipedia/commons/9/92/VinFast_logo.svg',
+                'Jeep' => 'https://upload.wikimedia.org/wikipedia/commons/0/00/Jeep_logo.svg',
+                'Audi' => 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Audi_logo.svg',
+                'Porsche' => 'https://upload.wikimedia.org/wikipedia/commons/1/15/Porsche_Logo.svg',
+                'Volvo' => 'https://upload.wikimedia.org/wikipedia/commons/8/85/Volvo_Iron_Mark.svg',
+                'Lexus' => 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Lexus_division_emblem.svg',
+                'Fiat' => 'https://upload.wikimedia.org/wikipedia/commons/1/1a/FIAT_logo.svg',
+                'Lamborghini' => 'https://upload.wikimedia.org/wikipedia/commons/2/24/Lamborghini_Logo.svg',
+                'Mini' => 'https://upload.wikimedia.org/wikipedia/commons/9/92/MINI_logo.svg',
+                'Force Motors' => 'https://upload.wikimedia.org/wikipedia/commons/3/35/Force_Motors_logo.svg',
+                'Jaguar' => 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Jaguar_logo.svg',
+                'Ferrari' => 'https://upload.wikimedia.org/wikipedia/commons/3/32/Ferrari_Logo.svg',
+                'JSW' => 'https://upload.wikimedia.org/wikipedia/commons/8/84/JSW_logo.svg',
             ];
         @endphp
 
         @foreach($brands as $brand)
+            @php
+                $slug = preg_replace('/[^a-z0-9]+/','-', strtolower($brand));
+                $localPath = public_path('images/brands/' . $slug . '.svg');
+                $logo = file_exists($localPath)
+                    ? asset('images/brands/' . $slug . '.svg')
+                    : ($brandLogos[$brand] ?? '/images/placeholder.jpg');
+            @endphp
             <div class="group bg-white border-2 border-gray-200 rounded-2xl p-6 text-center hover:border-purple-600 hover:shadow-lg transition-all duration-300">
-                <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-purple-50 flex items-center justify-center group-hover:scale-110 transition-transform border border-purple-100">
-                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 13l1.5-4.5A2 2 0 016.4 7h11.2a2 2 0 011.9 1.5L21 13m-18 0h18m-18 0v4a1 1 0 001 1h1m16-5v4a1 1 0 01-1 1h-1m-14 0a2 2 0 104 0m10 0a2 2 0 104 0M6 13h12" />
-                    </svg>
+                <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-purple-50 flex items-center justify-center group-hover:scale-110 transition-transform border border-purple-100 overflow-hidden">
+                    <img src="{{ $logo }}" alt="{{ $brand }} logo" class="w-full h-full object-contain p-1" loading="lazy">
                 </div>
-                <p class="font-bold text-gray-800 text-sm group-hover:text-purple-600 transition-colors">{{ $brand['name'] }}</p>
+                <p class="font-bold text-gray-800 text-sm group-hover:text-purple-600 transition-colors">{{ $brand }}</p>
             </div>
         @endforeach
     </div>

@@ -10,12 +10,12 @@
         </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="dashboard-role-shell py-8">
         <!-- Key Stats Section -->
-        <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-5 lg:gap-6 mb-8">
+        <div class="dashboard-stats-grid lg:grid-cols-5">
             <!-- Total Vehicles -->
             <div class="stat-card-modern card-blue dashboard-card-hover group">
-                <div class="relative z-10 flex items-start justify-between">
+                <div class="relative z-10">
                     <div>
                         <p class="text-blue-700 text-sm font-semibold mb-2 uppercase tracking-wide">Total Vehicles</p>
                         <p class="text-5xl font-bold text-blue-900 mb-2">{{ $stats['vehicles'] }}</p>
@@ -31,7 +31,7 @@
 
             <!-- Available Vehicles -->
             <div class="stat-card-modern card-emerald dashboard-card-hover group">
-                <div class="relative z-10 flex items-start justify-between">
+                <div class="relative z-10">
                     <div>
                         <p class="text-emerald-700 text-sm font-semibold mb-2 uppercase tracking-wide">Available</p>
                         <p class="text-5xl font-bold text-emerald-900 mb-2">{{ $stats['available_vehicles'] }}</p>
@@ -47,7 +47,7 @@
 
             <!-- Total Revenue (Sales Value) -->
             <div class="stat-card-modern card-purple dashboard-card-hover group">
-                <div class="relative z-10 flex items-start justify-between">
+                <div class="relative z-10">
                     <div>
                         <p class="text-purple-700 text-sm font-semibold mb-2 uppercase tracking-wide">Total Revenue</p>
                         <p class="text-3xl font-bold text-purple-900 mb-2">Nu.{{ number_format($stats['total_revenue'], 0) }}</p>
@@ -61,7 +61,7 @@
 
             <!-- Admin Profit (0.5%) -->
             <div class="stat-card-modern card-cyan dashboard-card-hover group">
-                <div class="relative z-10 flex items-start justify-between">
+                <div class="relative z-10">
                     <div>
                         <p class="text-cyan-700 text-sm font-semibold mb-2 uppercase tracking-wide">Admin Profit</p>
                         <p class="text-3xl font-bold text-cyan-900 mb-2">Nu.{{ number_format($stats['admin_revenue'], 2) }}</p>
@@ -77,7 +77,7 @@
 
             <!-- System Users -->
             <div class="stat-card-modern card-cyan dashboard-card-hover group">
-                <div class="relative z-10 flex items-start justify-between">
+                <div class="relative z-10">
                     <div>
                         <p class="text-cyan-700 text-sm font-semibold mb-2 uppercase tracking-wide">Users</p>
                         <p class="text-5xl font-bold text-cyan-900 mb-2">{{ $stats['buyers'] + $stats['sellers'] }}</p>
@@ -93,7 +93,7 @@
         </div>
 
         <!-- Secondary Stats Row -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="mb-8 grid grid-cols-1 gap-5 md:grid-cols-3 lg:gap-6">
             <div class="bg-white rounded-2xl shadow-md p-6 border-l-4 border-red-500">
                 <p class="text-gray-600 text-sm font-medium mb-1">Sold Vehicles</p>
                 <p class="text-3xl font-bold text-gray-900">{{ $stats['sold_vehicles'] }}</p>

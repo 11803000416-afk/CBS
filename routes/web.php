@@ -20,6 +20,9 @@ use App\Http\Controllers\ValuationController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\VehicleReviewController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ComparisonController;
+use App\Http\Controllers\AnalyticsController;
 use Illuminate\Support\Facades\Route;
 
 if (app()->environment('local') && env('ENABLE_DEBUG_ROUTES', false)) {
@@ -135,6 +138,8 @@ Route::middleware('auth')->group(function () {
     // API routes for vehicle details
     Route::get('/api/vehicles/{vehicle}', [VehicleController::class, 'showApi'])->name('api.vehicles.show');
     Route::get('/api/vehicles-search', [VehicleController::class, 'searchAjax'])->name('api.vehicles.search');
+    // Brand suggestion endpoint for live brand + image suggestions
+    Route::get('/api/brands/suggest', [VehicleController::class, 'brandSuggest'])->name('api.brands.suggest');
 
     Route::middleware('role:admin,broker,seller,buyer')->group(function () {
         Route::middleware('broker.approved')->group(function () {
@@ -254,4 +259,36 @@ Route::middleware('auth')->group(function () {
         Route::get('/reports', [PayrollController::class, 'generateReport'])->name('reports');
         Route::get('/export', [PayrollController::class, 'exportPayroll'])->name('export');
     });
+
+    // 🔥 PREMIUM FEATURES - Perfect 100 Score Features
+    
+    // Favorites/Wishlist Module
+    Route::prefix('favorites')->name('favorites.')->group(function () {
+        Route::get('/', [FavoriteController::class, 'index'])->name('index');
+        Route::post('/{vehicleId}/toggle', [FavoriteController::class, 'toggle'])->name('toggle');
+        Route::get('/{vehicleId}/check', [FavoriteController::class, 'check'])->name('check');
+        Route::delete('/{favoriteId}', [FavoriteController::class, 'remove'])->name('remove');
+        Route::delete('/', [FavoriteController::class, 'clearAll'])->name('clear-all');
+    });
+
+    // Vehicle Comparison Engine
+    Route::prefix('comparisons')->name('comparisons.')->group(function () {
+        Route::get('/', [ComparisonController::class, 'index'])->name('index');
+        Route::post('/create', [ComparisonController::class, 'create'])->name('create');
+        Route::get('/{comparison}', [ComparisonController::class, 'show'])->name('show');
+        Route::post('/{comparison}/add-vehicle', [ComparisonController::class, 'addVehicle'])->name('add-vehicle');
+        Route::post('/{comparison}/remove-vehicle', [ComparisonController::class, 'removeVehicle'])->name('remove-vehicle');
+        Route::delete('/{comparison}', [ComparisonController::class, 'delete'])->name('delete');
+        Route::get('/quick/compare', [ComparisonController::class, 'quickCompare'])->name('quick-compare');
+    });
+
+    // Analytics & Reporting Dashboard
+    Route::prefix('analytics')->name('analytics.')->middleware('role:admin,broker')->group(function () {
+        Route::get('/dashboard', [AnalyticsController::class, 'dashboard'])->name('dashboard');
+        Route::get('/export/pdf', [AnalyticsController::class, 'exportPDF'])->name('export.pdf');
+        Route::get('/export/excel', [AnalyticsController::class, 'exportExcel'])->name('export.excel');
+        Route::get('/activity-logs', [AnalyticsController::class, 'activityLogs'])->name('activity-logs');
+        Route::get('/metrics-range', [AnalyticsController::class, 'getMetricsByRange'])->name('metrics-range');
+    });
 });
+

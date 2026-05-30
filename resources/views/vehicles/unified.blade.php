@@ -33,9 +33,14 @@
         <!-- Brand Filter -->
         <div>
             <label class="block text-sm font-medium text-blue-100 mb-2">Brand</label>
-            <input type="text" name="brand" value="{{ request('brand') }}" 
-                   class="w-full px-4 py-3 rounded-lg bg-white text-gray-900 shadow-lg focus:ring-2 focus:ring-yellow-400 focus:outline-none"
-                   placeholder="e.g. Toyota, BMW">
+            <div class="relative">
+                <input id="brandInput" type="text" name="brand" value="{{ request('brand') }}" autocomplete="off"
+                       class="w-full px-4 py-3 rounded-lg bg-white text-gray-900 shadow-lg focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                       placeholder="e.g. Toyota, BMW">
+
+                <!-- Suggestions dropdown (populated by JS) -->
+                <div id="brandSuggestions" class="hidden absolute left-0 right-0 mt-1 bg-white rounded-lg shadow-lg z-50 max-h-56 overflow-y-auto"></div>
+            </div>
         </div>
 
         <!-- Model Filter -->
@@ -687,6 +692,81 @@ function closeOfferModal() {
     modal.classList.add('hidden');
     modal.classList.remove('flex');
 }
+
+// Brand input suggestions (images + names)
+(function() {
+    const input = document.getElementById('brandInput');
+    const suggestionsBox = document.getElementById('brandSuggestions');
+    if (!input || !suggestionsBox) return;
+
+    let debounceTimer = null;
+
+    function clearSuggestions() {
+        suggestionsBox.innerHTML = '';
+        suggestionsBox.classList.add('hidden');
+    }
+
+    function renderSuggestions(items) {
+        if (!items || items.length === 0) {
+            clearSuggestions();
+            return;
+        }
+
+        suggestionsBox.innerHTML = items.map(item => `
+            <button type="button" class="w-full text-left px-3 py-2 hover:bg-gray-50 flex items-center gap-3 border-b last:border-b-0" data-brand="${item.brand}">
+                <img src="${item.image || '/images/placeholder.jpg'}" alt="${item.brand}" class="w-12 h-8 object-cover rounded-md flex-shrink-0">
+                <div class="truncate">
+                    <div class="text-sm font-medium text-gray-900">${item.brand}</div>
+                </div>
+            </button>
+        `).join('');
+
+        suggestionsBox.classList.remove('hidden');
+
+        // Attach click handlers
+        suggestionsBox.querySelectorAll('button[data-brand]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const brand = this.dataset.brand;
+                input.value = brand;
+                clearSuggestions();
+            });
+        });
+    }
+
+    function fetchSuggestions(q) {
+        if (!q || q.trim().length === 0) {
+            clearSuggestions();
+            return;
+        }
+
+        fetch(`/api/brands/suggest?q=${encodeURIComponent(q)}`)
+            .then(r => r.json())
+            .then(data => {
+                renderSuggestions(Array.isArray(data) ? data : []);
+            })
+            .catch(() => {
+                clearSuggestions();
+            });
+    }
+
+    input.addEventListener('input', function() {
+        const q = this.value;
+        if (debounceTimer) clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => fetchSuggestions(q), 250);
+    });
+
+    // Close suggestions on outside click
+    document.addEventListener('click', function(e) {
+        if (!suggestionsBox.contains(e.target) && e.target !== input) {
+            clearSuggestions();
+        }
+    });
+
+    // Close on escape
+    input.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') clearSuggestions();
+    });
+})();
 
 // Keyboard shortcuts
 document.addEventListener('keydown', function(event) {

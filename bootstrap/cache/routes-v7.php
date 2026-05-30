@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::uqOAHOYFG4vbj50e',
+            '_route' => 'generated::kXuFNkM4qlg95taR',
           ),
           1 => NULL,
           2 => 
@@ -349,7 +349,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::KZXX1JLFCj2Xlo6R',
+            '_route' => 'generated::ST5urrXF7JsDPky7',
           ),
           1 => NULL,
           2 => 
@@ -1358,10 +1358,205 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/favorites' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'favorites.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'favorites.clear-all',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/comparisons' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'comparisons.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/comparisons/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'comparisons.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/comparisons/quick/compare' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'comparisons.quick-compare',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/analytics/dashboard' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'analytics.dashboard',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/analytics/export/pdf' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'analytics.export.pdf',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/analytics/export/excel' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'analytics.export.excel',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/analytics/activity-logs' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'analytics.activity-logs',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/analytics/metrics-range' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'analytics.metrics-range',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
     ),
     2 => 
     array (
-      0 => '{^(?|/api/vehicles/([^/]++)(*:29)|/email/verify/([^/]++)/([^/]++)(*:67)|/vehicles/([^/]++)(?|(*:95)|/(?|reviews(*:113)|edit(*:125))|(*:134))|/b(?|ookings/(?|create/([^/]++)(*:174)|([^/]++)(?|(*:193)|(*:201)))|uyers/([^/]++)(?|/edit(*:233)|(*:241))|roker\\-licenses/([^/]++)(?|(*:277)|/(?|approve(*:296)|reject(*:310))))|/my\\-vehicles/([^/]++)(?|/edit(*:351)|(*:359))|/offers/([^/]++)(?|(*:387))|/transactions/([^/]++)(?|/(?|download\\-agreement(*:444)|edit(*:456)|approve\\-payment(*:480)|reject\\-payment(*:503)|verify\\-otp(*:522))|(*:531))|/seller(?|s/([^/]++)(?|/edit(*:568)|(*:576))|\\-requests/([^/]++)(?|(*:607)|/(?|approve(*:626)|reject(*:640))))|/inquiries/([^/]++)(?|/edit(*:678)|(*:686))|/notifications/([^/]++)/read(*:723)|/chat/([^/]++)(?|(*:748)|/(?|fetch(*:765)|read(*:777))|(*:786))|/payroll/(?|employees/([^/]++)(?|/edit(*:833)|(*:841))|payroll/([^/]++)(?|/(?|approve(*:880)|process\\-payment(*:904))|(*:913))))/?$}sDu',
+      0 => '{^(?|/api/vehicles/([^/]++)(*:29)|/email/verify/([^/]++)/([^/]++)(*:67)|/vehicles/([^/]++)(?|(*:95)|/(?|reviews(*:113)|edit(*:125))|(*:134))|/b(?|ookings/(?|create/([^/]++)(*:174)|([^/]++)(?|(*:193)|(*:201)))|uyers/([^/]++)(?|/edit(*:233)|(*:241))|roker\\-licenses/([^/]++)(?|(*:277)|/(?|approve(*:296)|reject(*:310))))|/my\\-vehicles/([^/]++)(?|/edit(*:351)|(*:359))|/offers/([^/]++)(?|(*:387))|/transactions/([^/]++)(?|/(?|download\\-agreement(*:444)|edit(*:456)|approve\\-payment(*:480)|reject\\-payment(*:503)|verify\\-otp(*:522))|(*:531))|/seller(?|s/([^/]++)(?|/edit(*:568)|(*:576))|\\-requests/([^/]++)(?|(*:607)|/(?|approve(*:626)|reject(*:640))))|/inquiries/([^/]++)(?|/edit(*:678)|(*:686))|/notifications/([^/]++)/read(*:723)|/c(?|hat/([^/]++)(?|(*:751)|/(?|fetch(*:768)|read(*:780))|(*:789))|omparisons/([^/]++)(?|(*:820)|/(?|add\\-vehicle(*:844)|remove\\-vehicle(*:867))|(*:876)))|/payroll/(?|employees/([^/]++)(?|/edit(*:924)|(*:932))|payroll/([^/]++)(?|/(?|approve(*:971)|process\\-payment(*:995))|(*:1004)))|/favorites/([^/]++)(?|/(?|toggle(*:1047)|check(*:1061))|(*:1071)))/?$}sDu',
     ),
     3 => 
     array (
@@ -2237,7 +2432,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      748 => 
+      751 => 
       array (
         0 => 
         array (
@@ -2279,7 +2474,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      765 => 
+      768 => 
       array (
         0 => 
         array (
@@ -2302,7 +2497,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      777 => 
+      780 => 
       array (
         0 => 
         array (
@@ -2324,7 +2519,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      786 => 
+      789 => 
       array (
         0 => 
         array (
@@ -2346,7 +2541,96 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      833 => 
+      820 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'comparisons.show',
+          ),
+          1 => 
+          array (
+            0 => 'comparison',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      844 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'comparisons.add-vehicle',
+          ),
+          1 => 
+          array (
+            0 => 'comparison',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      867 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'comparisons.remove-vehicle',
+          ),
+          1 => 
+          array (
+            0 => 'comparison',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      876 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'comparisons.delete',
+          ),
+          1 => 
+          array (
+            0 => 'comparison',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      924 => 
       array (
         0 => 
         array (
@@ -2369,7 +2653,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      841 => 
+      932 => 
       array (
         0 => 
         array (
@@ -2391,7 +2675,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      880 => 
+      971 => 
       array (
         0 => 
         array (
@@ -2413,7 +2697,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      904 => 
+      995 => 
       array (
         0 => 
         array (
@@ -2435,7 +2719,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      913 => 
+      1004 => 
       array (
         0 => 
         array (
@@ -2451,6 +2735,73 @@ app('router')->setCompiledRoutes(
           array (
             'GET' => 0,
             'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1047 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'favorites.toggle',
+          ),
+          1 => 
+          array (
+            0 => 'vehicleId',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1061 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'favorites.check',
+          ),
+          1 => 
+          array (
+            0 => 'vehicleId',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1071 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'favorites.remove',
+          ),
+          1 => 
+          array (
+            0 => 'favoriteId',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -2619,7 +2970,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::uqOAHOYFG4vbj50e' => 
+    'generated::kXuFNkM4qlg95taR' => 
     array (
       'methods' => 
       array (
@@ -2642,7 +2993,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::uqOAHOYFG4vbj50e',
+        'as' => 'generated::kXuFNkM4qlg95taR',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3190,7 +3541,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::KZXX1JLFCj2Xlo6R' => 
+    'generated::ST5urrXF7JsDPky7' => 
     array (
       'methods' => 
       array (
@@ -3211,7 +3562,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::KZXX1JLFCj2Xlo6R',
+        'as' => 'generated::ST5urrXF7JsDPky7',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7041,6 +7392,650 @@ app('router')->setCompiledRoutes(
         'as' => 'payroll.export',
         'namespace' => NULL,
         'prefix' => '/payroll',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'favorites.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'favorites',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FavoriteController@index',
+        'controller' => 'App\\Http\\Controllers\\FavoriteController@index',
+        'as' => 'favorites.index',
+        'namespace' => NULL,
+        'prefix' => '/favorites',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'favorites.toggle' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'favorites/{vehicleId}/toggle',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FavoriteController@toggle',
+        'controller' => 'App\\Http\\Controllers\\FavoriteController@toggle',
+        'as' => 'favorites.toggle',
+        'namespace' => NULL,
+        'prefix' => '/favorites',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'favorites.check' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'favorites/{vehicleId}/check',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FavoriteController@check',
+        'controller' => 'App\\Http\\Controllers\\FavoriteController@check',
+        'as' => 'favorites.check',
+        'namespace' => NULL,
+        'prefix' => '/favorites',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'favorites.remove' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'favorites/{favoriteId}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FavoriteController@remove',
+        'controller' => 'App\\Http\\Controllers\\FavoriteController@remove',
+        'as' => 'favorites.remove',
+        'namespace' => NULL,
+        'prefix' => '/favorites',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'favorites.clear-all' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'favorites',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FavoriteController@clearAll',
+        'controller' => 'App\\Http\\Controllers\\FavoriteController@clearAll',
+        'as' => 'favorites.clear-all',
+        'namespace' => NULL,
+        'prefix' => '/favorites',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'comparisons.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'comparisons',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ComparisonController@index',
+        'controller' => 'App\\Http\\Controllers\\ComparisonController@index',
+        'as' => 'comparisons.index',
+        'namespace' => NULL,
+        'prefix' => '/comparisons',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'comparisons.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'comparisons/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ComparisonController@create',
+        'controller' => 'App\\Http\\Controllers\\ComparisonController@create',
+        'as' => 'comparisons.create',
+        'namespace' => NULL,
+        'prefix' => '/comparisons',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'comparisons.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'comparisons/{comparison}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ComparisonController@show',
+        'controller' => 'App\\Http\\Controllers\\ComparisonController@show',
+        'as' => 'comparisons.show',
+        'namespace' => NULL,
+        'prefix' => '/comparisons',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'comparisons.add-vehicle' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'comparisons/{comparison}/add-vehicle',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ComparisonController@addVehicle',
+        'controller' => 'App\\Http\\Controllers\\ComparisonController@addVehicle',
+        'as' => 'comparisons.add-vehicle',
+        'namespace' => NULL,
+        'prefix' => '/comparisons',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'comparisons.remove-vehicle' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'comparisons/{comparison}/remove-vehicle',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ComparisonController@removeVehicle',
+        'controller' => 'App\\Http\\Controllers\\ComparisonController@removeVehicle',
+        'as' => 'comparisons.remove-vehicle',
+        'namespace' => NULL,
+        'prefix' => '/comparisons',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'comparisons.delete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'comparisons/{comparison}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ComparisonController@delete',
+        'controller' => 'App\\Http\\Controllers\\ComparisonController@delete',
+        'as' => 'comparisons.delete',
+        'namespace' => NULL,
+        'prefix' => '/comparisons',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'comparisons.quick-compare' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'comparisons/quick/compare',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ComparisonController@quickCompare',
+        'controller' => 'App\\Http\\Controllers\\ComparisonController@quickCompare',
+        'as' => 'comparisons.quick-compare',
+        'namespace' => NULL,
+        'prefix' => '/comparisons',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'analytics.dashboard' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'analytics/dashboard',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'role:admin,broker',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AnalyticsController@dashboard',
+        'controller' => 'App\\Http\\Controllers\\AnalyticsController@dashboard',
+        'as' => 'analytics.dashboard',
+        'namespace' => NULL,
+        'prefix' => '/analytics',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'analytics.export.pdf' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'analytics/export/pdf',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'role:admin,broker',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AnalyticsController@exportPDF',
+        'controller' => 'App\\Http\\Controllers\\AnalyticsController@exportPDF',
+        'as' => 'analytics.export.pdf',
+        'namespace' => NULL,
+        'prefix' => '/analytics',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'analytics.export.excel' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'analytics/export/excel',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'role:admin,broker',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AnalyticsController@exportExcel',
+        'controller' => 'App\\Http\\Controllers\\AnalyticsController@exportExcel',
+        'as' => 'analytics.export.excel',
+        'namespace' => NULL,
+        'prefix' => '/analytics',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'analytics.activity-logs' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'analytics/activity-logs',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'role:admin,broker',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AnalyticsController@activityLogs',
+        'controller' => 'App\\Http\\Controllers\\AnalyticsController@activityLogs',
+        'as' => 'analytics.activity-logs',
+        'namespace' => NULL,
+        'prefix' => '/analytics',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'analytics.metrics-range' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'analytics/metrics-range',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'role:admin,broker',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AnalyticsController@getMetricsByRange',
+        'controller' => 'App\\Http\\Controllers\\AnalyticsController@getMetricsByRange',
+        'as' => 'analytics.metrics-range',
+        'namespace' => NULL,
+        'prefix' => '/analytics',
         'where' => 
         array (
         ),

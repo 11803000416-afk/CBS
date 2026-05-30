@@ -8,4 +8,22 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    build: {
+        cssCodeSplit: true,
+        rollupOptions: {
+            output: {
+                manualChunks(id) {
+                    if (!id.includes('node_modules')) {
+                        return;
+                    }
+
+                    if (id.includes('axios')) {
+                        return 'vendor-axios';
+                    }
+
+                    return 'vendor';
+                },
+            },
+        },
+    },
 });

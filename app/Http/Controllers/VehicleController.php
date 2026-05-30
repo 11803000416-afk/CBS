@@ -565,6 +565,40 @@ class VehicleController extends Controller
         ]);
     }
 
+    /**
+     * Suggest brands with a representative image for live brand input.
+     */
+    public function brandSuggest(Request $request)
+    {
+        $request->validate([
+            'q' => ['sometimes', 'string', 'max:120'],
+        ]);
+
+        $q = $request->query('q', '');
+
+        if (trim($q) === '') {
+            return response()->json([]);
+        }
+
+        $brands = Vehicle::where('brand', 'like', '%' . $q . '%')
+            ->whereNotNull('images')
+            ->whereRaw('JSON_LENGTH(images) > 0')
+            ->select('brand', 'images')
+            ->groupBy('brand')
+            ->limit(12)
+            ->get();
+
+        $result = $brands->map(function ($v) {
+            $imgPath = is_array($v->images) && count($v->images) ? $v->images[0] : null;
+            return [
+                'brand' => $v->brand,
+                'image' => $imgPath ? asset('storage/' . $imgPath) : null,
+            ];
+        });
+
+        return response()->json($result->values());
+    }
+
     public function destroy(Vehicle $vehicle): RedirectResponse
     {
         // Check ownership for my-vehicles routes or if user is not admin/seller

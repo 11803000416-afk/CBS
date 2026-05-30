@@ -52,21 +52,34 @@
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
         @php
             $brands = [
-                ['name' => 'Maruti Suzuki', 'icon' => '🎯', 'color' => 'blue'],
-                ['name' => 'Hyundai', 'icon' => '🏎️', 'color' => 'purple'],
-                ['name' => 'Mahindra', 'icon' => '🚙', 'color' => 'emerald'],
-                ['name' => 'Tata', 'icon' => '⭐', 'color' => 'indigo'],
-                ['name' => 'Honda', 'icon' => '🏆', 'color' => 'red'],
-                ['name' => 'Toyota', 'icon' => '🚗', 'color' => 'orange'],
+                'Maruti Suzuki','Hyundai','Mahindra','Tata','Honda','Toyota'
+            ];
+
+            $brandLogos = [
+                'Maruti Suzuki' => 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Maruti_Suzuki_logo.svg',
+                'Hyundai' => 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Hyundai_logo.svg',
+                'Mahindra' => 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Mahindra_Logo.svg',
+                'Tata' => 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Tata_Motors_logo.svg',
+                'Honda' => 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Honda-logo.svg',
+                'Toyota' => 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Toyota_logo.svg',
             ];
         @endphp
-        
+
         @foreach($brands as $brand)
+            @php
+                $slug = preg_replace('/[^a-z0-9]+/','-', strtolower($brand));
+                $localPath = public_path('images/brands/' . $slug . '.svg');
+                $logo = file_exists($localPath)
+                    ? asset('images/brands/' . $slug . '.svg')
+                    : ($brandLogos[$brand] ?? '/images/placeholder.jpg');
+            @endphp
             <a href="{{ route('vehicles.browse') }}" 
                class="flex flex-col items-center justify-center p-8 rounded-2xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:bg-blue-50 hover:shadow-lg transition-all duration-300 group">
-                <div class="text-5xl mb-4 group-hover:scale-125 transition-transform duration-300">{{ $brand['icon'] }}</div>
+                <div class="w-20 h-20 mb-4 rounded-full bg-white flex items-center justify-center overflow-hidden">
+                    <img src="{{ $logo }}" alt="{{ $brand }} logo" class="w-full h-full object-contain p-3" loading="lazy">
+                </div>
                 <div class="text-center">
-                    <p class="font-bold text-gray-900 text-sm">{{ $brand['name'] }}</p>
+                    <p class="font-bold text-gray-900 text-sm">{{ $brand }}</p>
                 </div>
             </a>
         @endforeach
@@ -168,10 +181,11 @@
                     <!-- Image -->
                     <div class="relative h-64 bg-gray-200 overflow-hidden">
                         @if($vehicle->images && count($vehicle->images) > 0)
-                            <img src="{{ asset('storage/' . $vehicle->images[0]) }}" 
-                                 alt="{{ $vehicle->brand }} {{ $vehicle->model }}"
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                 loading="lazy">
+                               <img src="{{ asset('storage/' . $vehicle->images[0]) }}" 
+                                   alt="{{ $vehicle->brand }} {{ $vehicle->model }}"
+                                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                   loading="lazy"
+                                   decoding="async">
                         @else
                             <div class="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
                                 <span class="text-gray-600 font-semibold">No Image</span>

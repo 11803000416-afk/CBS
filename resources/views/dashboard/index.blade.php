@@ -5,7 +5,7 @@
 
 @section('content')
 <!-- Premium Header Section - BHUTANESE COLOR SCHEME -->
-<div class="relative mb-8 overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-600 via-amber-500 to-red-600 px-6 py-8 text-white shadow-2xl sm:px-8 sm:py-10 shimmer will-animate">
+<div class="dashboard-hero bg-gradient-to-r from-emerald-600 via-amber-500 to-red-600 text-white sm:px-8 shimmer will-animate">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.16),_transparent_30%),radial-gradient(circle_at_bottom_left,_rgba(255,255,255,0.10),_transparent_28%)]"></div>
     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div class="max-w-3xl">
@@ -42,8 +42,8 @@
 <!-- Stats Grid - BHUTANESE COLOR SCHEME -->
 <div class="grid grid-cols-1 gap-5 md:grid-cols-2 {{ auth()->user()->hasRole([\App\Models\User::ROLE_ADMIN, \App\Models\User::ROLE_BROKER]) ? 'lg:grid-cols-4' : 'lg:grid-cols-3' }} lg:gap-6 mb-8">
     <!-- Stat Card 1 - Total Vehicles (GREEN) -->
-    <div class="stat-card-modern  dashboard-card-hover will-animate animation-fadeIn rounded-2xl p-6 shadow-lg border border-emerald-200/50 backdrop-blur-md bg-gradient-to-br from-emerald-50 via-emerald-50 to-emerald-100">
-        <div class="relative z-10 flex items-start justify-between">
+    <div class="stat-card-modern dashboard-card-hover will-animate animation-fadeIn rounded-2xl p-6 shadow-lg border border-emerald-200/50 backdrop-blur-md bg-gradient-to-br from-emerald-50 via-emerald-50 to-emerald-100">
+        <div class="relative z-10">
             <div>
                 <p class="text-emerald-700 text-sm font-semibold mb-2 uppercase tracking-wide">Total Vehicles</p>
                 <p class="text-5xl font-bold text-emerald-900 mb-2">{{ $stats['vehicles'] ?? 0 }}</p>
@@ -59,7 +59,7 @@
 
     <!-- Stat Card 2 - Available Vehicles (LIME GREEN) -->
     <div class="stat-card-modern dashboard-card-hover will-animate animation-fadeIn rounded-2xl p-6 shadow-lg border border-lime-200/50 backdrop-blur-md bg-gradient-to-br from-lime-50 via-lime-50 to-lime-100">
-        <div class="relative z-10 flex items-start justify-between">
+        <div class="relative z-10">
             <div>
                 <p class="text-lime-700 text-sm font-semibold mb-2 uppercase tracking-wide">Available</p>
                 <p class="text-5xl font-bold text-lime-900 mb-2">{{ $stats['available_vehicles'] ?? 0 }}</p>
@@ -75,7 +75,7 @@
 
     <!-- Stat Card 3 - Sold Vehicles (ORANGE = Nu Currency) -->
     <div class="stat-card-modern dashboard-card-hover will-animate animation-fadeIn rounded-2xl p-6 shadow-lg border border-amber-200/50 backdrop-blur-md bg-gradient-to-br from-amber-50 via-amber-50 to-amber-100">
-        <div class="relative z-10 flex items-start justify-between">
+        <div class="relative z-10">
             <div>
                 <p class="text-amber-700 text-sm font-semibold mb-2 uppercase tracking-wide">Sold (Nu.)</p>
                 <p class="text-5xl font-bold text-amber-900 mb-2">{{ $stats['sold_vehicles'] ?? 0 }}</p>
@@ -90,7 +90,7 @@
     <!-- Stat Card 4 - Total Buyers (Admin/Broker only - RED) -->
     @if(auth()->user()->hasRole([\App\Models\User::ROLE_ADMIN, \App\Models\User::ROLE_BROKER]))
     <div class="stat-card-modern dashboard-card-hover will-animate animation-fadeIn rounded-2xl p-6 shadow-lg border border-red-200/50 backdrop-blur-md bg-gradient-to-br from-red-50 via-red-50 to-red-100">
-        <div class="relative z-10 flex items-start justify-between">
+        <div class="relative z-10">
             <div>
                 <p class="text-red-700 text-sm font-semibold mb-2 uppercase tracking-wide">Buyers</p>
                 <p class="text-5xl font-bold text-red-900 mb-2">{{ $stats['buyers'] ?? 0 }}</p>

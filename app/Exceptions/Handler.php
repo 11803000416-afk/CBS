@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Throwable;
+use App\Http\Responses\ApiResponse;
+use App\Models\ActivityLog;
 
 class Handler extends ExceptionHandler
 {
@@ -32,9 +34,7 @@ class Handler extends ExceptionHandler
     {
         $this->renderable(function (AuthenticationException $e, Request $request) {
             if ($request->expectsJson()) {
-                return response()->json([
-                    'message' => 'Unauthenticated.',
-                ], 401);
+                return ApiResponse::unauthorized('Unauthenticated.', 401);
             }
 
             return redirect()->guest(route('login'));
@@ -42,9 +42,7 @@ class Handler extends ExceptionHandler
 
         $this->renderable(function (TokenMismatchException $e, Request $request) {
             if ($request->expectsJson()) {
-                return response()->json([
-                    'message' => 'Session expired. Please refresh and try again.',
-                ], 419);
+                return ApiResponse::error('Session expired. Please refresh and try again.', 419);
             }
 
             if ($request->hasSession()) {
@@ -66,10 +64,7 @@ class Handler extends ExceptionHandler
             $message = 'Database service is temporarily unavailable. Please try again later.';
 
             if ($request->expectsJson()) {
-                return response()->json([
-                    'message' => $message,
-                    'reference' => $reference,
-                ], 503);
+                return ApiResponse::error($message, 503, null, $reference);
             }
 
             return $this->renderErrorView($request, 503, $reference, $message);
@@ -96,10 +91,7 @@ class Handler extends ExceptionHandler
                 : 'An unexpected error occurred.';
 
             if ($request->expectsJson()) {
-                return response()->json([
-                    'message' => $message,
-                    'reference' => $reference,
-                ], $status);
+                return ApiResponse::serverError($message, $status, $reference);
             }
 
             return $this->renderErrorView($request, $status, $reference);
@@ -115,6 +107,19 @@ class Handler extends ExceptionHandler
             'status' => $status,
             'reference' => $reference,
         ]);
+
+        try {
+            ActivityLog::logActivity(
+                auth()->id() ?? null,
+                'exception',
+                null,
+                null,
+                ($context ?? 'Unhandled exception') . " [{$reference}] " . $e->getMessage()
+            );
+        } catch (Throwable $ex) {
+            // Avoid throwing while logging
+            Log::warning('Failed to write to activity_logs: ' . $ex->getMessage());
+        }
 
         return $reference;
     }

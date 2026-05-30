@@ -47,8 +47,10 @@
             <div class="relative h-48 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
                 @if($vehicle->images && count($vehicle->images) > 0)
                     <img src="{{ asset('storage/' . $vehicle->images[0]) }}" 
-                         alt="{{ $vehicle->brand }} {{ $vehicle->model }}" 
-                         class="w-full h-full object-cover">
+                        alt="{{ $vehicle->brand }} {{ $vehicle->model }}" 
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async">
                 @else
                     <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50">
                         <svg class="vehicle-icon-animated" width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">

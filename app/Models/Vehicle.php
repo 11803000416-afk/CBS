@@ -75,6 +75,29 @@ class Vehicle extends Model
         return $this->hasMany(VehicleReview::class)->where('status', 'published');
     }
 
+    // 🔥 PREMIUM FEATURES RELATIONSHIPS
+    public function valuation(): HasOne
+    {
+        return $this->hasOne(VehicleValuation::class);
+    }
+
+    public function favorites(): HasMany
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
+    public function isFavoritedBy(int $userId): bool
+    {
+        return Favorite::where('user_id', $userId)
+            ->where('vehicle_id', $this->id)
+            ->exists();
+    }
+
+    public function getFavoritesCount(): int
+    {
+        return $this->favorites()->count();
+    }
+
     public function averageRating(): float
     {
         $average = $this->publishedReviews()->avg('rating');
@@ -86,4 +109,28 @@ class Vehicle extends Model
     {
         return $this->publishedReviews()->count();
     }
+
+    // Scope methods for filtering
+    public function scopeActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+
+    public function scopeSold($query)
+    {
+        return $query->where('status', 'sold');
+    }
+
+    public function scopeApproved($query)
+    {
+        return $query->where('status', '!=', 'pending');
+    }
+
+    // Record vehicle view
+    public function recordView(): void
+    {
+        $this->increment('views_count');
+        Analytics::recordMetric('vehicle_views', $this->brand . ' ' . $this->model);
+    }
 }
+

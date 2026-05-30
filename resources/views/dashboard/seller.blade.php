@@ -5,7 +5,7 @@
 
 @section('content')
 <!-- Premium Header Section -->
-<div class="mb-8 bg-gradient-to-r from-purple-600 via-purple-600 to-pink-600 rounded-3xl p-8 text-white shadow-2xl">
+<div class="mb-8 rounded-3xl bg-gradient-to-r from-purple-600 via-purple-600 to-pink-600 p-6 text-white shadow-2xl sm:p-8">
     <h1 class="text-4xl font-bold mb-2">Welcome back, {{ auth()->user()->name }}! 👋</h1>
     <p class="text-purple-100 text-lg">You are logged in as a {{ auth()->user()->hasRole(\App\Models\User::ROLE_BROKER) ? 'broker' : 'seller' }}</p>
 </div>
@@ -23,10 +23,10 @@
 @endif
 
 <!-- Stats Grid -->
-<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 mb-8">
+<div class="dashboard-stats-grid lg:grid-cols-3">
     <!-- Stat Card 1 - Total Vehicles -->
     <div class="stat-card-modern card-blue dashboard-card-hover">
-        <div class="relative z-10 flex items-start justify-between">
+        <div class="relative z-10">
             <div>
                 <p class="text-blue-700 text-sm font-semibold mb-2 uppercase tracking-wide">Total Vehicles</p>
                 <p class="text-5xl font-bold text-blue-900 mb-2">{{ $stats['vehicles'] ?? 0 }}</p>
@@ -42,7 +42,7 @@
 
     <!-- Stat Card 2 - Available Vehicles -->
     <div class="stat-card-modern card-emerald dashboard-card-hover">
-        <div class="relative z-10 flex items-start justify-between">
+        <div class="relative z-10">
             <div>
                 <p class="text-emerald-700 text-sm font-semibold mb-2 uppercase tracking-wide">Available</p>
                 <p class="text-5xl font-bold text-emerald-900 mb-2">{{ $stats['available_vehicles'] ?? 0 }}</p>
@@ -58,7 +58,7 @@
 
     <!-- Stat Card 3 - Sold Vehicles -->
     <div class="stat-card-modern card-purple dashboard-card-hover">
-        <div class="relative z-10 flex items-start justify-between">
+        <div class="relative z-10">
             <div>
                 <p class="text-purple-700 text-sm font-semibold mb-2 uppercase tracking-wide">Sold</p>
                 <p class="text-5xl font-bold text-purple-900 mb-2">{{ $stats['sold_vehicles'] ?? 0 }}</p>
@@ -76,7 +76,7 @@
 <!-- Quick Actions -->
 <div class="mb-8">
     <h2 class="text-2xl font-bold text-gray-900 mb-4">Quick Actions</h2>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div class="dashboard-quick-grid md:grid-cols-3">
         <a href="{{ route('my-vehicles.create') }}" class="dashboard-card dashboard-card-hover text-center hover:bg-blue-50 group">
             <div class="flex flex-col items-center justify-center gap-3">
                 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
@@ -136,15 +136,53 @@
             'Jeep', 'Audi', 'Porsche', 'Volvo', 'Lexus', 'Fiat',
             'Lamborghini', 'Mini', 'Force Motors', 'Jaguar', 'Ferrari', 'JSW'
         ];
+
+        $brandLogos = [
+            'Maruti Suzuki' => 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Maruti_Suzuki_logo.svg',
+            'Tata' => 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Tata_Motors_logo.svg',
+            'Mahindra' => 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Mahindra_Logo.svg',
+            'Hyundai' => 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Hyundai_logo.svg',
+            'Toyota' => 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Toyota_logo.svg',
+            'Kia' => 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Kia_logo.svg',
+            'BMW' => 'https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg',
+            'Skoda' => 'https://upload.wikimedia.org/wikipedia/commons/7/79/Skoda_Auto_logo.svg',
+            'Honda' => 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Honda-logo.svg',
+            'MG' => 'https://upload.wikimedia.org/wikipedia/commons/4/4a/MG_logo.svg',
+            'Volkswagen' => 'https://upload.wikimedia.org/wikipedia/commons/7/75/Volkswagen_logo.svg',
+            'Renault' => 'https://upload.wikimedia.org/wikipedia/commons/9/90/Renault_2021_logo.svg',
+            'Mercedes-Benz' => 'https://upload.wikimedia.org/wikipedia/commons/9/90/Mercedes-Benz_logo.svg',
+            'Land Rover' => 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Land_Rover_logo.svg',
+            'Nissan' => 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Nissan_logo.svg',
+            'BYD' => 'https://upload.wikimedia.org/wikipedia/commons/7/78/BYD_logo.svg',
+            'Citroen' => 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Citro%C3%ABn_logo.svg',
+            'VinFast' => 'https://upload.wikimedia.org/wikipedia/commons/9/92/VinFast_logo.svg',
+            'Jeep' => 'https://upload.wikimedia.org/wikipedia/commons/0/00/Jeep_logo.svg',
+            'Audi' => 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Audi_logo.svg',
+            'Porsche' => 'https://upload.wikimedia.org/wikipedia/commons/1/15/Porsche_Logo.svg',
+            'Volvo' => 'https://upload.wikimedia.org/wikipedia/commons/8/85/Volvo_Iron_Mark.svg',
+            'Lexus' => 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Lexus_division_emblem.svg',
+            'Fiat' => 'https://upload.wikimedia.org/wikipedia/commons/1/1a/FIAT_logo.svg',
+            'Lamborghini' => 'https://upload.wikimedia.org/wikipedia/commons/2/24/Lamborghini_Logo.svg',
+            'Mini' => 'https://upload.wikimedia.org/wikipedia/commons/9/92/MINI_logo.svg',
+            'Force Motors' => 'https://upload.wikimedia.org/wikipedia/commons/3/35/Force_Motors_logo.svg',
+            'Jaguar' => 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Jaguar_logo.svg',
+            'Ferrari' => 'https://upload.wikimedia.org/wikipedia/commons/3/32/Ferrari_Logo.svg',
+            'JSW' => 'https://upload.wikimedia.org/wikipedia/commons/8/84/JSW_logo.svg',
+        ];
     @endphp
 
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         @foreach($brands as $brand)
+            @php
+                $slug = preg_replace('/[^a-z0-9]+/','-', strtolower($brand));
+                $localPath = public_path('images/brands/' . $slug . '.svg');
+                $logo = file_exists($localPath)
+                    ? asset('images/brands/' . $slug . '.svg')
+                    : ($brandLogos[$brand] ?? '/images/placeholder.jpg');
+            @endphp
             <a href="{{ route('vehicles.browse', ['brand' => $brand]) }}" class="group bg-white rounded-2xl border-2 border-gray-200 p-5 text-center hover:border-purple-500 hover:shadow-lg transition-all duration-300">
-                <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center group-hover:scale-110 transition-transform border border-purple-200">
-                    <svg class="w-6 h-6 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 13l1.5-4.5A2 2 0 016.4 7h11.2a2 2 0 011.9 1.5L21 13m-18 0h18m-18 0v4a1 1 0 001 1h1m16-5v4a1 1 0 01-1 1h-1m-14 0a2 2 0 104 0m10 0a2 2 0 104 0M6 13h12" />
-                    </svg>
+                <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-white flex items-center justify-center group-hover:scale-110 transition-transform border border-purple-100 overflow-hidden">
+                    <img src="{{ $logo }}" alt="{{ $brand }} logo" class="w-full h-full object-contain p-1" loading="lazy">
                 </div>
                 <p class="text-sm font-semibold text-gray-800 group-hover:text-purple-600 transition-colors">{{ $brand }}</p>
             </a>
